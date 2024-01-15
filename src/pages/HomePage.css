@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Montserrat&display=swap');
+
+.logo{
+    margin: 15px;
+    width : 60px;
+}
+.backgroundImg{
+    width: 100%;
+    height: 80%;
+}
+
+.title{
+    position: absolute;
+    top: 250px;
+    left: 500px;
+    text-align: center;
+    color: #001F3F;
+    font-size: 60px;
+    font-family: 'EB Garamond', serif;
+}
+.titleHero{
+    position: absolute;
+    font-weight: bolder;
+    top: 380px;
+    left: 600px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #48CAE4;
+}
+.titleHero button{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #48CAE4;
+    height: 40px;
+    width: 190px;
+    border-radius: 10;
+    cursor: pointer;
+    border: 0px;
+}
+.titleHero button:hover{
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: white;
+}
