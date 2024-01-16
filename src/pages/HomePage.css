@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Montserrat&display=swap');
-
+.contents{
+    background-color: #001F3F;
+}
 .logo{
     margin: 15px;
     width : 60px;

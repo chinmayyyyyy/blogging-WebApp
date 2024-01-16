@@ -1,0 +1,39 @@
+.extroSection{
+    background-color: #001F3F;
+    display: flex;
+    width: auto;
+    height: 400px;
+}
+.extroImages{
+    
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.left1 , left2{
+    margin-top: 10px;
+    margin-right: 0px;
+    padding-right: 0px;
+    width :50%;
+}
+.right1{
+    margin-top: 10px;
+    position: relative;
+    right: 230px;
+    width :135%;
+    margin-left:0px;
+    padding-left: 0px;
+}
+.leftImage{
+    display: flex;
+    flex-direction: column;
+}
+.extroText{
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    margin-top: 200px;
+    flex: 1;
+}

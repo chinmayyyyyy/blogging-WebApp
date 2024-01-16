@@ -1,13 +1,17 @@
 // App.js
 import React from 'react';
-import HomePage from './pages/HomePage'; // Import your home page component
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Blog from './pages/Blog';
 
 const App = () => {
   return (
-    <div>
-      <HomePage />
-      {/* Add other pages or components as needed */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<Blog />} />
+      </Routes>
+    </Router>
   );
 };
 
