@@ -10,7 +10,11 @@
     width: 100%;
     height: 80%;
 }
-
+.custom-link {
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit color from parent */
+  }
+  
 .title{
     position: absolute;
     top: 250px;

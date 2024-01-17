@@ -1,24 +1,35 @@
 /* blogContent.css */
+
 .blogContentContainer {
-    background-color: #48CAE4;
+    background-color: #ffffff;
     overflow: hidden; /* This is already present in your original code */
+
   }
   
   .posterImg {
+    margin: 30px;
     width: 40%;
     float: left;
     margin-right: 20px;
+    border-radius: 10px;
   }
-  
+  .blogTitle{
+    color: #001F3F;
+    font-family: 'EB Garamond', serif;
+      font-size: 48px;
+  }
   .blogContentParagraph {
-    overflow: hidden; /* Add this line if not present */
-    /* Add the clearfix to ensure proper text wrapping */
-    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+    zoom: 1; 
+    font-family: 'Open Sans', sans-serif;
   }
   
   .blogContentParagraph::after {
     content: ""; /* Clearfix generated content */
     display: table;
     clear: both;
+  }
+  .blogContentParagraph p::first-letter {
+    font-size: 2.5em;
+    font-weight: bold;
   }
   

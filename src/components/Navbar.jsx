@@ -1,5 +1,6 @@
 // Navbar.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/images/blog_logo-modified.png';
 
 const Navbar = ({ specialPageStyle }) => {
@@ -21,12 +22,12 @@ const Navbar = ({ specialPageStyle }) => {
   }, []);
 
   const navbarStyle = {
-    color: specialPageStyle ? 'white' : (scrolling ? '#ffffff' : '#001F3F'),
-    background: specialPageStyle ? '#001F3F' : (scrolling ? '#001F3F' : 'transparent'),
+    color: specialPageStyle ? 'white' : scrolling ? '#ffffff' : '#001F3F',
+    background: specialPageStyle ? '#001F3F' : scrolling ? '#001F3F' : 'transparent',
     fontSize: 22,
     position: specialPageStyle ? 'relative' : 'fixed', // Set position to fixed for the special page
-    width: '100%',
-    height: specialPageStyle ?'5%' : '10%',
+    width: specialPageStyle ? '98%' : '100%', // Adjust width based on special page
+    height: specialPageStyle ? '1%' : '10%', // Adjust height based on special page
     listStyleType: 'none',
     zIndex: 1000,
     display: 'flex',
@@ -53,12 +54,26 @@ const Navbar = ({ specialPageStyle }) => {
   return (
     <nav style={navbarStyle}>
       <div>
-        <img className='logo' src={logo} alt="" />
+        <Link to="/" className="custom-link">
+          <img className='logo' src={logo} alt="" />
+        </Link>
       </div>
       <ul style={ulStyle}>
-        <li style={liStyle}>Home</li>
-        <li style={liStyle}>Blogs</li>
-        <li style={liStyle}>About Us</li>
+        <li style={liStyle}>
+          <Link to="/" className="custom-link">
+            Home
+          </Link>
+        </li>
+        <li style={liStyle}>
+          <Link to="/blogs" className="custom-link">
+            Blogs
+          </Link>
+        </li>
+        <li style={liStyle}>
+          <Link to="/about" className="custom-link">
+            About Us
+          </Link>
+        </li>
       </ul>
     </nav>
   );

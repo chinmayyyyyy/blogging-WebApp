@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import './blog.css';
 import BlogContent from '../components/BlogContent';
+import Footer from '../components/Footer';
+
 
 export default class Blog extends Component {
   render() {
@@ -18,6 +20,8 @@ export default class Blog extends Component {
         <div>
         <BlogContent />
         </div>
+        <Footer/>
+
       </div>
     );
   }

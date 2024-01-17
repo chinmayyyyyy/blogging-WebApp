@@ -10,7 +10,7 @@ export class BlogContent extends Component {
       <div className='blogContentContainer'>
         <img className='posterImg' src={leftImg2} alt="" />
         <div className='blogContentParagraph'>
-            <h1>Lorem ipsum dolor sit.</h1>
+            <h1 className='blogTitle'>Lorem ipsum dolor sit.</h1>
          <p> 
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime cumque nulla consequuntur aliquam fuga beatae veritatis quisquam fugit, voluptatum assumenda aut quos molestias vitae alias possimus esse numquam mollitia dicta, corrupti quia sint! Quae qui reiciendis est voluptatem autem nobis praesentium quod nam vitae ad quia sint, maiores, placeat consectetur iusto quisquam vel saepe debitis quis a aliquam unde dolorem! Commodi provident, adipisci debitis quos nisi consequatur laudantium dignissimos perferendis deserunt enim eos quam animi voluptate illo cupiditate dolor iure nesciunt at distinctio facilis delectus ex nemo asperiores. Alias recusandae hic eum! Totam cumque, a saepe molestias modi odio?
          </p>
