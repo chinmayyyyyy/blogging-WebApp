@@ -1,0 +1,24 @@
+/* blogContent.css */
+.blogContentContainer {
+    background-color: #48CAE4;
+    overflow: hidden; /* This is already present in your original code */
+  }
+  
+  .posterImg {
+    width: 40%;
+    float: left;
+    margin-right: 20px;
+  }
+  
+  .blogContentParagraph {
+    overflow: hidden; /* Add this line if not present */
+    /* Add the clearfix to ensure proper text wrapping */
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+  }
+  
+  .blogContentParagraph::after {
+    content: ""; /* Clearfix generated content */
+    display: table;
+    clear: both;
+  }
+  

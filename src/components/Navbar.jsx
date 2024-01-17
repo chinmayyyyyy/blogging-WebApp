@@ -1,7 +1,8 @@
+// Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/images/blog_logo-modified.png';
 
-const Navbar = () => {
+const Navbar = ({ specialPageStyle }) => {
   const [scrolling, setScrolling] = useState(false);
 
   const handleScroll = () => {
@@ -20,20 +21,21 @@ const Navbar = () => {
   }, []);
 
   const navbarStyle = {
-    color: scrolling ? '#ffffff' : '#001F3F', // Change text color based on scroll
-    background: scrolling ? '#001F3F' : 'transparent', // Change background based on scroll
+    color: specialPageStyle ? 'white' : (scrolling ? '#ffffff' : '#001F3F'),
+    background: specialPageStyle ? '#001F3F' : (scrolling ? '#001F3F' : 'transparent'),
     fontSize: 22,
-    position: 'fixed',
+    position: specialPageStyle ? 'relative' : 'fixed', // Set position to fixed for the special page
     width: '100%',
-    height : '10%',
+    height: specialPageStyle ?'5%' : '10%',
     listStyleType: 'none',
-    zIndex: 1000, // Ensure the navbar is above other elements
+    zIndex: 1000,
     display: 'flex',
     fontFamily: 'Montserrat',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px', // Adjust padding as needed
-    transition: '0.3s ease', // Add transition for a smooth effect
+    padding: '10px',
+    transition: '0.3s ease',
+    cursor: 'pointer',
   };
 
   const ulStyle = {
@@ -45,7 +47,7 @@ const Navbar = () => {
   };
 
   const liStyle = {
-    margin: '30px', // Adjust margin as needed
+    margin: '30px',
   };
 
   return (

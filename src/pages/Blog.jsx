@@ -1,19 +1,24 @@
-// components/BlogPreview.jsx
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-const Blog = () => {
-  const history = useHistory();
+// Blog.jsx
+import React, { Component } from 'react';
+import Navbar from '../components/Navbar';
+import './blog.css';
+import BlogContent from '../components/BlogContent';
 
-  const handleViewMoreClick = () => {
-    history.push('/blog'); // Replace with your target route
-  };
+export default class Blog extends Component {
+  render() {
+    const isSpecialPage = true; // Set this based on the current page or some condition
 
-  return (
-    <div className='preview'>
-      {/* ... rest of your component */}
-      <button className='previewText' onClick={handleViewMoreClick}>View More</button>
-    </div>
-  );
-};
-
-export default Blog;
+    return (
+      <div className='blog'>
+        {isSpecialPage ? (
+          <Navbar specialPageStyle />
+        ) : (
+          <Navbar />
+        )}
+        <div>
+        <BlogContent />
+        </div>
+      </div>
+    );
+  }
+}
