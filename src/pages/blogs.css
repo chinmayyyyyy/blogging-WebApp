@@ -1,0 +1,18 @@
+.blogHolder{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin-top: 60px;
+    margin-left: 120px;
+    margin-bottom : 60px;
+    text-align: center;
+    width: 100%;
+}
+.blogs-page {
+    background-color: #001F3F;
+    overflow-x: hidden;
+  }
+hr{
+    width: 840px;
+    
+}

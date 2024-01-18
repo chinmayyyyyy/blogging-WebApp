@@ -1,0 +1,29 @@
+/* Footer.css */
+
+.footer-navbar {
+    background-color: #48CAE4;
+    color: #001F3F;
+    font-size: 22px;
+    height: 10%;
+    width: 98.4%;
+    list-style-type: none;
+    z-index: 1000; /* Ensure the navbar is above other elements */
+    display: flex;
+    font-family: 'Montserrat';
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Adjust padding as needed */
+  }
+  
+  /* .footer-navbar .logo { */
+    /* Define styles for the logo if needed */
+  /* } */
+  
+  .footer-navbar h4 {
+    display: flex;
+    list-style-type: none;
+    margin: 10px;
+    margin-right: 20px;
+    padding: 0;
+  }
+  

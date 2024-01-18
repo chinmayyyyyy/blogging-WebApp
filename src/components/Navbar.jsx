@@ -70,7 +70,7 @@ const Navbar = ({ specialPageStyle }) => {
           </Link>
         </li>
         <li style={liStyle}>
-          <Link to="/about" className="custom-link">
+          <Link to="/aboutUs" className="custom-link">
             About Us
           </Link>
         </li>

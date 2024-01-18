@@ -14,11 +14,15 @@
     text-decoration: none; /* Remove default underline */
     color: inherit; /* Inherit color from parent */
   }
+
+.custom-link:hover {
+    color: white; /* Inherit color from parent */
+  }
   
 .title{
     position: absolute;
     top: 250px;
-    left: 500px;
+    left: 540px;
     text-align: center;
     color: #001F3F;
     font-size: 60px;
