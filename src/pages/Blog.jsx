@@ -1,37 +1,51 @@
 // Blog.jsx
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import './blog.css';
 import BlogContent from '../components/BlogContent';
 import Footer from '../components/Footer';
 import Extro from '../components/Extro';
+import { useParams } from 'react-router-dom'; // Import useParams hook
 
-export default class Blog extends Component {
-  render() {
-    const isSpecialPage = true; // Set this based on the current page or some condition
+const Blog = () => {
+  const isSpecialPage = true; // Set this based on the current page or some condition
 
-    // Example data for BlogContent
-    const blogData1 = {
-      imageUrl: 'path/to/image1.jpg',
-      title: 'Blog Post 1',
-      content: '          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, debitis. Pariatur modi distinctio est rem nisi autem optio quod, a eligendi tempora fugit vel praesentium voluptatem velit, voluptate laudantium assumenda magni! Omnis veritatis et velit modi! Nostrum amet ipsum cupiditate repellat perspiciatis debitis libero odit itaque, harum sapiente iste, ab recusandae odio excepturi exercitationem omnis dolorum! Consequuntur quidem, architecto aliquam modi culpa quisquam illo quos numquam suscipit! Dolore eligendi ad hic accusamus beatae. Aut quos dolore culpa, eos a quisquam reprehenderit molestiae quia minus labore excepturi cum deserunt deleniti enim maiores quas nihil voluptatem laborum, animi sit adipisci veniam provident?',
-    };
+  // Example data for BlogContent
+  const blogData1 = {
+    id: 1,
+    imageUrl: 'path/to/image1.jpg',
+    title: 'PUNE',
+    content: 'Your blog content goes here...',
+  };
 
-    return (
-      <div className='blog'>
-        {isSpecialPage ? (
-          <Navbar specialPageStyle />
+  // Extract blog ID from the URL using useParams
+  const { id } = useParams();
+
+  // Fetch blog data based on the ID from your backend or data source
+  // Replace this with your actual data fetching logic
+  // For now, using a hardcoded blogData as an example
+  const blogData = id === '1' ? blogData1 : null;
+
+  return (
+    <div className='blog'>
+      {isSpecialPage ? (
+        <Navbar specialPageStyle />
+      ) : (
+        <Navbar />
+      )}
+      <div>
+        {blogData ? (
+          <BlogContent {...blogData} />
         ) : (
-          <Navbar />
+          <p>Blog not found</p>
         )}
-        <div>
-          <BlogContent {...blogData1} />
-        </div>
-        <div>
-          <Extro/>
-        </div>
-        <Footer/>
       </div>
-    );
-  }
-}
+      <div>
+        <Extro />
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default Blog;
