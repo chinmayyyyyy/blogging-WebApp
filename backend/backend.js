@@ -1,45 +1,45 @@
+// index.js
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const mysql = require('mysql2/promise'); // Import MySQL library
+const mysql = require('mysql2');
+const router = express.Router();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(bodyParser.json());
+// Import the database configuration
+const dbConfig = require('./dbConfig');
 
 // Create a MySQL connection pool
-const pool = mysql.createPool({
-  host: 'localhost', // your MySQL host
-  user: 'root', // your MySQL user
-  password: 'your_password', // your MySQL password
-  database: 'your_database', // your MySQL database
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+const pool = mysql.createPool(dbConfig);
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use('/api', router); // Use '/api' as the base path
+
+
+
+router.post('/write', (req, res) => {
+  const { title, content, imageUrl, userId } = req.body;
+
+  // Construct SQL query
+  const sql = 'INSERT INTO posts (title, content, imageUrl, userId, createdAt) VALUES (?, ?, ?, ?, NOW())';
+
+  // Execute the query
+  pool.query(sql, [title, content, imageUrl, userId], (err, result) => {
+    if (err) {
+      console.error('Error creating blog post:', err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+    // Blog post created successfully
+    return res.status(201).json({ message: 'Blog post created successfully', postId: result.insertId });
+  });
 });
 
-// Example route to get all blogs
-app.get('/api/blogs', async (req, res) => {
-  try {
-    // Get a connection from the pool
-    const connection = await pool.getConnection();
-    
-    // Query to get all blogs
-    const [rows, fields] = await connection.query('SELECT * FROM blogs');
-
-    // Release the connection back to the pool
-    connection.release();
-
-    res.json(rows);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-// Add more routes for CRUD operations as needed
+module.exports = router;
+// Routes and other middleware will go here
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
