@@ -1,55 +1,86 @@
-/* Write.css */
+/* write.css */
 
 /* Container styles */
 .write-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Navbar styles */
+.blog-navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Form container styles */
+.blog-form-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+.blog-form {
+  padding: 20px;
+}
+
+/* Input styles */
+.blog-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Textarea styles */
+.blog-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 16px;
+}
+
+/* Button styles */
+.blog-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Button hover effect */
+.blog-button:hover {
+  background-color: #0056b3;
+}
+
+/* Success message styles */
+.success-message {
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  .blog-form-container {
+    margin: 10px;
   }
-  
-  /* Form styles */
-  .blog-form {
-    max-width: 600px;
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Input styles */
-  .blog-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* Textarea styles */
-  .blog-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical; /* Allow vertical resizing of the textarea */
-  }
-  
-  /* Button styles */
-  .blog-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  /* Button hover effect */
-  .blog-button:hover {
-    background-color: #0056b3;
-  }
-  
+}

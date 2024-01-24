@@ -1,40 +1,44 @@
-// Blog.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import './blog.css';
 import BlogContent from '../components/BlogContent';
 import Footer from '../components/Footer';
 import Extro from '../components/Extro';
-import { useParams } from 'react-router-dom'; // Import useParams hook
+import { useParams } from 'react-router-dom';
 
 const Blog = () => {
-  const isSpecialPage = true; // Set this based on the current page or some condition
-
-  // Example data for BlogContent
-  const blogData1 = {
-    id: 1,
-    imageUrl: 'path/to/image1.jpg',
-    title: 'PUNE',
-    content: 'Your blog content goes here...',
-  };
-
-  // Extract blog ID from the URL using useParams
+  const isSpecialPage = true;
   const { id } = useParams();
+  const [blogData, setBlogData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Fetch blog data based on the ID from your backend or data source
-  // Replace this with your actual data fetching logic
-  // For now, using a hardcoded blogData as an example
-  const blogData = id === '1' ? blogData1 : null;
+  useEffect(() => {
+    const fetchBlogData = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/blog/${id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch blog data');
+        }
+
+        const data = await response.json();
+        setBlogData(data);
+      } catch (error) {
+        console.error('Error fetching blog data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogData();
+  }, [id]);
 
   return (
     <div className='blog'>
-      {isSpecialPage ? (
-        <Navbar specialPageStyle />
-      ) : (
-        <Navbar />
-      )}
+      {isSpecialPage ? <Navbar specialPageStyle /> : <Navbar />}
       <div>
-        {blogData ? (
+        {loading ? (
+          <p>Loading...</p>
+        ) : blogData ? (
           <BlogContent {...blogData} />
         ) : (
           <p>Blog not found</p>

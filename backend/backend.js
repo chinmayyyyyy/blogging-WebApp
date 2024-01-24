@@ -1,4 +1,4 @@
-// index.js
+// backend.js
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -35,6 +35,57 @@ router.post('/write', (req, res) => {
 
     // Blog post created successfully
     return res.status(201).json({ message: 'Blog post created successfully', postId: result.insertId });
+  });
+});
+
+router.get('/blog/:id' , (req , res) =>{
+    const {id} = req.params ;
+
+    //constructing SQL
+    const sql = 'SELECT * FROM posts WHERE id = ?';
+
+    pool.query(sql, [id] , (err , results)=>{
+      if(err){
+        console.log("Error fetching the blog" , err);
+        return res.statusCode(500).json({error : "Internal server error"});
+      }
+      if (results.length === 0) {
+        return res.status(404).json({ error: 'Blog not found' });
+      }
+  
+      const blogData = results[0];
+      return res.json(blogData);
+
+    });
+});
+router.get('/allBlogs', (req, res) => {
+
+    //constructing SQL
+    const sql = 'SELECT * FROM posts';
+
+    // Execute the query
+    pool.query(sql, (err, results) => {
+      if (err) {
+        console.error('Error fetching blogs:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+      }
+  
+      return res.json(results);
+
+    });
+});
+router.get('/allBlogs', (req, res) => {
+  // Construct SQL query to fetch all blogs
+  const sql = 'SELECT * FROM posts';
+
+  // Execute the query
+  pool.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error fetching blogs:', err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+    return res.json(results);
   });
 });
 

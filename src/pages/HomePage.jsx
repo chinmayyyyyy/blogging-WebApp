@@ -1,5 +1,6 @@
 // HomePage.js
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
@@ -9,28 +10,28 @@ import Extro from '../components/Extro';
 import Footer from '../components/Footer';
 
 const HomePage = () => {
-  // Mock data for blogs
-  const blogDataArray = [
-    {
-      id: 1,
-      imageUrl: 'path/to/image1.jpg',
-      title: 'PUNE',
-      // ... other data for Blog Post 1
-    },
-    {
-      id: 2,
-      imageUrl: 'path/to/image2.jpg',
-      title: 'Blog Post 2',
-      // ... other data for Blog Post 2
-    },
-    {
-      id: 3,
-      imageUrl: 'path/to/image2.jpg',
-      title: 'Blog Post 2',
-      // ... other data for Blog Post 2
-    },
- 
-  ];
+  const [blogDataArray, setBlogDataArray] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/allBlogs');
+        if (!response.ok) {
+          throw new Error('Failed to fetch blogs');
+        }
+
+        const data = await response.json();
+        setBlogDataArray(data);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   return (
     <div className='contents'>
@@ -38,7 +39,7 @@ const HomePage = () => {
       <img className='backgroundImg' src={background} alt="Background of the Travel Blogging website" />
       <h1 className='title'>Travel Blogging</h1>
       <HeroSection />
-      <LatestBlogs blogs={blogDataArray} />
+      <LatestBlogs blogs={blogDataArray} loading={loading} />
       <Extro />
       <Footer />
     </div>
