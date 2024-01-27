@@ -37,6 +37,8 @@ router.post('/write', upload.single('image'), (req, res) => {
     return res.status(201).json({ message: 'Blog post created successfully', postId: result.insertId });
   });
 });
+
+// Backend to get the particular blog
 router.get('/blog/:id', (req, res) => {
   const { id } = req.params;
 
@@ -58,6 +60,34 @@ router.get('/blog/:id', (req, res) => {
     res.json(blogData);
   });
 });
+
+// Fetch image based on ID
+router.get('/getImage/:id', (req, res) => {
+  const { id } = req.params;
+
+  // Construct SQL query to fetch image data based on ID
+  const sql = 'SELECT image FROM posts WHERE id = ?';
+
+  // Execute the query
+  pool.query(sql, [id], (err, results) => {
+    if (err) {
+      console.error('Error fetching image data:', err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+    if (results.length === 0 || !results[0].image) {
+      return res.status(404).json({ error: 'Image not found' });
+    }
+
+    const imageData = results[0].image;
+
+    // Send the image data to the client
+    res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+    res.end(imageData, 'binary');
+  });
+});
+
+
 
 router.get('/allBlogs', (req, res) => {
 

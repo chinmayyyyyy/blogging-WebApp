@@ -1,0 +1,20 @@
+/* External stylesheet for BlogDashboard component */
+.dashboard-container {
+    margin: 0 auto;
+    padding: 05px;
+    color : white;
+    background-color: #001F3F;
+  }
+.displayBlogs{
+    padding: 05px;
+    margin-top: 50px;
+    margin-left: 80px;
+    max-width: 1200px;
+    height: 600px ;
+    background-color: #ffffff;
+    text-align: center;
+    color: #48CAE4;
+}
+.displayBlogs h4{
+    font-size: 36px;
+}
