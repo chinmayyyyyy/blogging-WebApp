@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Import the database configuration
 const dbConfig = require('./dbConfig');
+const { Await } = require('react-router-dom');
 
 // Create a MySQL connection pool
 const pool = mysql.createPool(dbConfig);
@@ -87,8 +88,6 @@ router.get('/getImage/:id', (req, res) => {
   });
 });
 
-
-
 router.get('/allBlogs', (req, res) => {
 
     //constructing SQL
@@ -104,6 +103,35 @@ router.get('/allBlogs', (req, res) => {
       return res.json(results);
 
     });
+});
+
+//Updating the blog
+// Backend to update a particular blog
+router.put('/edit/:id', async (req, res) => {
+  const { title, content } = req.body;
+  const blogId = req.params.id;
+
+  try {
+    // Get a connection from the pool
+    const connection = await pool.promise().getConnection();
+
+    // Execute the update query
+    const [result] = await connection.query('UPDATE posts SET title = ?, content = ? WHERE id = ?', [title, content, blogId]);
+
+    // Release the connection back to the pool
+    connection.release();
+
+    if (result.affectedRows > 0) {
+      // Successfully updated the blog post
+      res.json({ success: true, message: 'Blog post updated successfully' });
+    } else {
+      // No rows were affected, meaning the blog post with the specified ID was not found
+      res.status(404).json({ success: false, message: 'Blog post not found' });
+    }
+  } catch (error) {
+    console.error('Error updating blog post:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
 });
 
 

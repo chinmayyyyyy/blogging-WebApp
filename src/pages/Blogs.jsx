@@ -1,7 +1,8 @@
+// Blogs.js
 import React, { useState, useEffect } from 'react';
 import './blogs.css';
 import Navbar from '../components/Navbar';
-import BlogPreview from '../components/BlogPreview';
+import BlogList from '../components/BlogList'; // Import the new BlogList component
 import Footer from '../components/Footer';
 
 const Blogs = () => {
@@ -27,25 +28,24 @@ const Blogs = () => {
 
     fetchBlogs();
   }, []);
+
   const isSpecialPage = true;
 
   return (
     <div className="blogs-page">
-       <div>
-          {isSpecialPage ? (
-            <Navbar specialPageStyle />
-          ) : (
-            <Navbar />
-          )}
-        </div>
+      <div>
+        {isSpecialPage ? (
+          <Navbar specialPageStyle />
+        ) : (
+          <Navbar />
+        )}
+      </div>
       <hr />
       <div className='blogHolder'>
         {loading ? (
           <p>Loading...</p>
         ) : (
-          blogs.map(blog => (
-            <BlogPreview key={blog.id} {...blog} />
-          ))
+          <BlogList blogs={blogs} />
         )}
       </div>
       <div className='footer'>

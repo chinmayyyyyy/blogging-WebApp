@@ -4,13 +4,18 @@
     padding: 05px;
     color : white;
     background-color: #001F3F;
+    text-align: center;
+  }
+  .dashboard-container h1{
+    font-family: 'Montserrat', sans-serif;
+    
   }
 .displayBlogs{
-    padding: 05px;
+    overflow-x:hidden ;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 30px;
     margin-top: 50px;
-    margin-left: 80px;
-    max-width: 1200px;
-    height: 600px ;
     background-color: #ffffff;
     text-align: center;
     color: #48CAE4;
