@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom'; // Import useParams
-
+import './editBlog.css';
 const EditBlog = () => {
   const { blogId } = useParams(); // Use useParams to get the parameters from the URL
 
@@ -43,7 +43,7 @@ const EditBlog = () => {
   };
 
   return (
-    <div>
+    <div className='editContainer'>
       <h2>Edit Blog</h2>
       <label>Title:</label>
       <input type="text" name="title" value={blogData.title} onChange={handleInputChange} />

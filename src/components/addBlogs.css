@@ -1,0 +1,19 @@
+.addBlogContainer{
+    margin:40px ;
+    padding:5px;
+    color: #3498db;
+    background-color: white;
+    width: 460px;
+  font-family: 'Montserrat', sans-serif;
+    height: 100px;
+    display: flex;
+}
+.addBlogText{
+    flex: 1;
+}
+.addButton{
+    padding: 20px;
+}
+.totalInfo{
+    flex: 1;
+}

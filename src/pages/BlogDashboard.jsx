@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './BlogDashboard.css';
 import BlogList from '../components/BlogList';
+import AddBlogs from '../components/AddBlogs';
 
 class BlogDashboard extends Component {
   constructor(props) {
@@ -34,6 +35,9 @@ class BlogDashboard extends Component {
     return (
       <div className='dashboard-container'>
         <h1>Hello, Master !..</h1>
+        <div className="addBlogs">
+        <AddBlogs/>
+        </div>
         <div className='displayBlogs'>
           <h4>Edit Blogs</h4>
           {loading ? (

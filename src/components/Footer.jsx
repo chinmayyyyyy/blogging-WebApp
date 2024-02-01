@@ -11,7 +11,7 @@ export default class Footer extends Component {
           <img className='logo' src={logo} alt="" />
         </div>
         <h4>
-          Travel Blogging
+        ©  Travel Blogging
         </h4>
       </nav>
     );
