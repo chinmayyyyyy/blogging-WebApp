@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/blog_logo-modified.png';
-
+import '../pages/HomePage.css'
 const Navbar = ({ specialPageStyle }) => {
   const [scrolling, setScrolling] = useState(false);
 
@@ -53,7 +53,7 @@ const Navbar = ({ specialPageStyle }) => {
 
   return (
     <nav style={navbarStyle}>
-      <div>
+      <div >
         <Link to="/" className="custom-link">
           <img className='logo' src={logo} alt="" />
         </Link>

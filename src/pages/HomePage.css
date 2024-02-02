@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Montserrat&display=swap');
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* This prevents horizontal scrolling */
+}
 .contents{
     background-color: #001F3F;
+    margin: 0;
+    padding: 0;
 }
 .logo{
     margin: 15px;
     width : 60px;
+    height: auto;
 }
 .backgroundImg{
     width: 100%;
@@ -60,15 +68,26 @@
   
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
-    .title {
-      font-size: 40px;
-      top: 10%;
-    }
-    .titleHero {
-        top: 25%;
-      }
-    
-    .titleHero button {
-        width: 40%;
-      }
+  .title {
+    font-size: 40px;
+    top: 20%;
   }
+  .backgroundImg {
+    max-width: 100%;
+    max-height: 30%;
+    margin: 0 auto; /* Center the image */
+    transform: scaleY(1.8); /* Adjust the scaleY factor as needed */
+    transform-origin: top center;
+  }
+  .titleHero {
+    top: 32%;
+    font-size: 16px;
+  }
+
+  .custom-link {
+    font-size: 16px;
+  }
+  .logo {
+    width: 100% !important;
+  }
+}
