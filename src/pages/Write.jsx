@@ -10,7 +10,7 @@ const Write = () => {
     imageFile: null,
   });
   const [successMessage, setSuccessMessage] = useState('');
-
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setBlogData({ ...blogData, [name]: value });

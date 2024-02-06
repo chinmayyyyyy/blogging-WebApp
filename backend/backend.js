@@ -7,6 +7,7 @@ const router = express.Router();
 const multer = require('multer');
 const app = express();
 const PORT = process.env.PORT || 5000;
+require('dotenv').config();
 
 // Import the database configuration
 const dbConfig = require('./dbConfig');
@@ -138,6 +139,7 @@ router.put('/edit/:id', async (req, res) => {
 module.exports = router;
 // Routes and other middleware will go here
 
-app.listen(PORT, () => {
+app.listen(PORT,() => {
   console.log(`Server is running on port ${PORT}`);
 });
+

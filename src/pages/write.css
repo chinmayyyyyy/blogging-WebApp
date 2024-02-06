@@ -79,8 +79,12 @@
 }
 
 /* Media query for smaller screens */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+
   .blog-form-container {
+    padding: 10px;
+  }
+  .write-container{
     margin: 10px;
   }
 }

@@ -4,8 +4,7 @@
     width: auto;
     height: 400px;
 }
-.extroImages{
-    
+.extroImages{  
     flex: 1;
     padding: 20px;
     display: flex;
@@ -36,4 +35,25 @@
     font-size: 30px;
     margin-top: 200px;
     flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .extroText{
+            font-size: 22px;
+            flex-direction: row;
+            display: block;
+    }
+   
+    .leftImage{
+        position: relative;
+        left: 200px;
+    }
+    .left1 {
+        width: 90%;
+    }
+    .right1{
+        position: relative;
+        right: 110px;
+        width: 300%;
+    }
 }

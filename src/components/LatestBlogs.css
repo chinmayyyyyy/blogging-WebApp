@@ -52,7 +52,13 @@
         margin-top: 220px;
    }
    .blogPreview{
-        margin: 0px;
-   } 
-
+    width: 600px;
+    margin: 10px;
+    margin-left: -5px;
+    flex-direction: column;
+    gap: 10px;
+    } 
+   .previewText{
+    font-size: 15px;
+   }
 }

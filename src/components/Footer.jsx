@@ -8,7 +8,7 @@ export default class Footer extends Component {
     return (
       <nav className='footer-navbar'>
         <div>
-          <img className='logo' src={logo} alt="" />
+          <img className='footerlogo' src={logo} alt="" />
         </div>
         <h4>
         ©  Travel Blogging

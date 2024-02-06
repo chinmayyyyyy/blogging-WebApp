@@ -1,5 +1,7 @@
 /* Footer.css */
-
+.footerlogo{
+    width: 70px;
+}
 .footer-navbar {
     background-color: #48CAE4;
     color: #001F3F;
@@ -26,4 +28,13 @@
     margin-right: 20px;
     padding: 0;
   }
+@media screen and (max-width: 768px) {
+    .footerlogo{
+        width: 40px;
+    }
+
+
+
+
+}
   

@@ -23,3 +23,21 @@
 .displayBlogs h4{
     font-size: 36px;
 }
+
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .addBlogs {
+    margin-bottom: 10px; /* Reduce margin for smaller screens */
+  }
+
+  .displayBlogs {
+    margin: 10px; /* Adjust margin for smaller screens */
+  }
+
+  .displayBlogs h4 {
+    font-size: 20px; /* Further reduce font size for smaller screens */
+  }
+}
